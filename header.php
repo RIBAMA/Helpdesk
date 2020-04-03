@@ -26,8 +26,8 @@
             <header class="top-header">
                 <nav class="top-nav">
                     <ul>
-                    <?= nav_item("/home.php", "Home")?>
-                    <?= nav_item("/tickets.php", "Tickets")?>
+                    <?php//the functino nav_item yield the nav items and we remove the space for the presentation ?>
+                    <?= nav_item("/home.php", "Home")?><?= nav_item("/tickets.php", "Tickets")?>
                     </ul>
                 </nav>
             </header>

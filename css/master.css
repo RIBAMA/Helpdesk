@@ -12,24 +12,39 @@ body {
     color: rgb(222, 222, 222);
     background-color: rgb(1, 7, 21);
     /*box-shadow: 0px 2px 4px 3px #1d1b1b69;*/
-    padding: 3px;
+    padding: 0 3px;
+    height: 22px;
+}
+.top-nav {
+    display: inline-block;
+    height: 100%;
+}
+.top-nav ul {
+    margin: 0;
+    display: inline-block;
+    height: 100%;
 }
 .top-nav , ul , li , a {
     color: inherit;
 }
 .top-nav ul li {
-    display: inline;
+    display: inline-block;
+    height: 100%;
 }
 .top-nav a {
     padding: 4px 40px;
     margin: 0;
     text-decoration: none;
     transition: color .3s;
+    display: inline-block;
+    height: 100%;
 }
 .top-nav ul li a:hover {
-    color: rgb(255, 255, 255)
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .top-nav ul .active {
+    background-color: #b72a00;
     font-weight: bold;
 } 
 .main {
@@ -44,8 +59,8 @@ body {
     flex-direction: row;
     align-items: center;
     align-content: flex-end;
-    /*background-color: rgba(1, 7, 21, 1);*/
-    background-image: linear-gradient(to bottom ,rgba(100,100,100, 0.4),rgba(100,100,100,  0.6),rgba(100,100,100,  1)) ,url("../rsc/img/bench_at_the_american_museum_of_natural_history_by_james_pond.jpg");
+    background-color: rgba(1, 7, 21, 0.9);
+    /*background-image: linear-gradient(to bottom ,rgba(100,100,100, 0.4),rgba(100,100,100,  0.6),rgba(100,100,100,  1)) ,url("../rsc/img/bench_at_the_american_museum_of_natural_history_by_james_pond.jpg");*/
 }
 form {
     width: 70%;
