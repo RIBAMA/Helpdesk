@@ -20,6 +20,7 @@
                     HelpDesk
                 <?php endif; ?>
             </title>
+            <link rel="shortcut icon" href="<?=$faveIcon?>" type="image/x-icon">
             <link rel="stylesheet" href="css/master.css" type="text/css" media="all">
         </head>
         <body>
@@ -30,4 +31,5 @@
                     <?= nav_item("/home.php", "Home")?><?= nav_item("/tickets.php", "Tickets")?>
                     </ul>
                 </nav>
+                
             </header>

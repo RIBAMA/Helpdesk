@@ -1,12 +1,22 @@
 <?php
+session_start();
+if ( empty ( $_SESSION['connected'] ) ) {
+    header ("HTTP/1.1 301 Moved Permanently");
+    header ("Location: /home.php?notConnected=true");
+    exit();
+}
+if ( $_GET['reconnection'] ) {
+    $error =    "<div class='alert-danger'>
+                    You're now connected. Log out if you want to login again
+                </div>";
+}
 $title="Tickets";
+$faveIcon="rsc/img/fav_submit.png";
 include 'header.php';
 ?>
     <div class="main">
-        <?php
-            include 'asside.php';
-        ?> 
         <div class="center">
+            <?php if ( $error ) { echo $error; } ?>
             <form action="tickets.php" method="post" accept-charset="utf-8">
                 <div class="input">
                     <label for="object">Object</label>
