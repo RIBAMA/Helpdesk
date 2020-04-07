@@ -1,7 +1,7 @@
 <?php
 $title="Home";
 $faveIcon="rsc/img/fav_home.png";
-include 'header.php';
+require_once 'header.php';
 $error = null;
 $pseudo = 'John';
 $password = '$2y$10$DVmY2HXaXaU4QAIGsSrHVOxbh8Byt5WeM/WwVZyoK8nIkzcRGFqVS';
@@ -16,20 +16,16 @@ if ( $_GET['notConnected'] ) {
             </div>";
     unset ( $_GET['notConnected']);
 }
-if ( $_POST['userName'] && $_POST['userPassword'] ) {
+/*
+ *
+ *gestion de la DB
+ *
+ */
+require_once 'dbfunction.php';
+$idcom = connexobjet("record","myparam");
+login($idcom);
+$idcom->close();
 
-    if (  $_POST['userName'] === $pseudo && password_verify ( $_POST['userPassword'] , $password ) ){
-        $_SESSION['connected'] = 1;
-        header ("HTTP/1.1 301 Moved Permanently");
-        header ("Location: /tickets.php");
-        exit();
-    } 
-    else {
-        $error = "  <div class='alert-danger'>
-                        One or more identifier(s) are wrong(s)!
-                    </div>";
-    }
-}
 ?>
     <div class="main">
         <div class="center">
@@ -37,16 +33,17 @@ if ( $_POST['userName'] && $_POST['userPassword'] ) {
             <form class="login" action="" method="post" accept-charset="utf-8">
                 <div class="input">
                     <label for="userName">Name</label>
-                    <input type="text" name="userName" id="userName" value="">
+                    <input type="text" name="userName" id="userName" value="" required>
                 </div>
                 <div class="input2">
                     <label for="userPassword">Password</label>
-                    <input type="password" name="userPassword" id="userPassword" value="">
+                    <input type="password" name="userPassword" id="userPassword" value="" required>
                 </div>
                 <input type="submit" name="send" id="send" value="Login">
             </form>
         </div>
     </div>    
 <?php
-include 'footer.php';
+require_once 'footer.php';
 ?>
+<script type="text/javascript" src="js/app.js" charset="utf-8"></script>

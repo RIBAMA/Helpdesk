@@ -46,15 +46,20 @@ body {
     text-decoration: none;
     transition: color .3s;
     display: inline-block;
-    height: 80%;
+    height: 100%;
 }
-.top-nav ul li a:hover , .right-top-nav ul li a:hover {
+.top-nav ul li:hover , .right-top-nav ul li:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.5);
+    transition: background-color 0.5s;
 }
 .top-nav ul .active {
     background-color: #b72a00;
     font-weight: bold;
+} 
+.top-nav ul .active:hover {
+    background-color: #c7634a;
+    transition: background-color 0.5s;
 } 
 .right-top-nav a {
     background-color: #191f2bd6;
@@ -137,9 +142,10 @@ input[type="email"]:focus{
     display: flex;
     justify-content: space-around;
     font-weight: 900;
-    margin: 20px 0;
+    margin: 0;
+    padding: 0;
     position: absolute;
-    top: 100px;
+    top: 130px;
     left: 30px;
     right: 30px;
 }
@@ -149,7 +155,7 @@ input[type="email"]:focus{
 #lbDescription {
     text-align: center;
     position: absolute;
-    top: 160px;
+    top: 10px;
     left: 10px;
     right: 10px;
     width: auto;
@@ -163,15 +169,15 @@ textarea {
     border-width: 1px;
     border-style: inset;
     border-color: #616464;
+    width: 90%;
     position: absolute;
-    top: 180px;
+    top: 40px;
 }
 textarea:focus {
     outline-color:rgb(100, 100, 120);
 }
 label {
     color: rgb(255, 255, 255);
-    margin: 0 0 0 35px;
     width: 15%;
 }
 #send {
@@ -240,6 +246,12 @@ label {
 .alert-danger {
     background-color: rgb(255, 203, 221);
     color: #6b0000;
+    padding: 20px;
+    border-radius: 5px;
+}
+.alert-info {
+    background-color: #C5CAE9;
+    color: #1A237E;
     padding: 20px;
     border-radius: 5px;
 }
