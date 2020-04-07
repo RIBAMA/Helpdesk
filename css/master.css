@@ -19,27 +19,36 @@ body {
     display: inline-block;
     height: 100%;
 }
-.top-nav ul {
+.right-top-nav {
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    height: 100%;
+}
+.top-nav ul , .right-top-nav ul {
     margin: 0;
     display: inline-block;
     height: 100%;
+}
+.top-header li {
+    list-style: none;
 }
 .top-nav , ul , li , a {
     color: inherit;
 }
-.top-nav ul li {
+.top-nav ul li , .right-top-nav ul li {
     display: inline-block;
     height: 100%;
 }
-.top-nav a {
-    padding: 0 40px;
+.top-nav a , .right-top-nav a {
+    padding: 5px 40px 0;
     margin: 0;
     text-decoration: none;
     transition: color .3s;
     display: inline-block;
-    height: 100%;
+    height: 80%;
 }
-.top-nav ul li a:hover {
+.top-nav ul li a:hover , .right-top-nav ul li a:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.5);
 }
@@ -47,6 +56,9 @@ body {
     background-color: #b72a00;
     font-weight: bold;
 } 
+.right-top-nav a {
+    background-color: #191f2bd6;
+}
 .main {
 }
 .center {

@@ -5,7 +5,6 @@ include 'header.php';
 $error = null;
 $pseudo = 'John';
 $password = '$2y$10$DVmY2HXaXaU4QAIGsSrHVOxbh8Byt5WeM/WwVZyoK8nIkzcRGFqVS';
-session_start();
 if ( $_SESSION['connected'] ) {
     header ("HTTP/1.1 301 Moved Permanently");
     header ("Location: /tickets.php?reconnection=1");

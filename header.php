@@ -1,6 +1,6 @@
 <?php
     function nav_item(string $route, string $lable):string{
-        if ($_SERVER["SCRIPT_NAME"]===$route) {
+        if ($_SERVER["SCRIPT_NAME"] === $route) {
             $class = " class='active'";
         }
         return "<li $class><a href=$route>$lable</a></li>";
@@ -31,5 +31,14 @@
                     <?= nav_item("/home.php", "Home")?><?= nav_item("/tickets.php", "Tickets")?>
                     </ul>
                 </nav>
-                
+                <?php
+                    session_start();
+                    if ( $_SESSION['connected'] ):
+                ?>
+                        <div class="right-top-nav">
+                            <ul>
+                                <li><a href="/logout.php" >Logout</a></li>
+                            </ul>
+                        </div>
+                <?php endif; ?>
             </header>
