@@ -31,8 +31,6 @@ function login ($idcom) {
         }
         if ( $_POST['userName'] && $_POST['userPassword'] ) {
 
-            if (  $_POST['userName'] === $pseudo && password_verify ( $_POST['userPassword'] , $password ) ){
-            }
             if (  $_POST['userName'] == $login &&  $_POST['userPassword'] == $password ){
                 $_SESSION['connected'] = 1;
                 $_SESSION['login'] = $login;
@@ -49,5 +47,21 @@ function login ($idcom) {
             }
         }
         $result->free();
+    }
+}
+
+function insertTicket ( $idcom , $sender , $description , $day , $hour , $object ) {
+    global $error;
+    global $info;
+    $request = "INSERT INTO ticket ( sender, description ,day , hour , object ) VALUES ( '$sender' , '$description' , '$day' , '$hour' , '$object' )";
+    $result = $idcom->query($request);
+    if ( $result ) {
+        $info =     "<div class='alert-info'>
+                        request success :) ❗
+                    </div>";
+    } else {
+        $error =    "<div class='alert-danger'>
+                        insertion failed :( ❗
+                    </div>";
     }
 }

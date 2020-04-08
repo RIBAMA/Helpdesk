@@ -3,8 +3,6 @@ $title="Home";
 $faveIcon="rsc/img/fav_home.png";
 require_once 'header.php';
 $error = null;
-$pseudo = 'John';
-$password = '$2y$10$DVmY2HXaXaU4QAIGsSrHVOxbh8Byt5WeM/WwVZyoK8nIkzcRGFqVS';
 if ( $_SESSION['connected'] ) {
     header ("HTTP/1.1 301 Moved Permanently");
     header ("Location: /tickets.php?reconnection=1");
@@ -16,11 +14,7 @@ if ( $_GET['notConnected'] ) {
             </div>";
     unset ( $_GET['notConnected']);
 }
-/*
- *
- *gestion de la DB
- *
- */
+
 require_once 'dbfunction.php';
 $idcom = connexobjet("record","myparam");
 login($idcom);
@@ -33,7 +27,7 @@ $idcom->close();
             <form class="login" action="" method="post" accept-charset="utf-8">
                 <div class="input">
                     <label for="userName">Name</label>
-                    <input type="text" name="userName" id="userName" value="" required>
+                    <input type="text" name="userName" id="userName" value="" required autofocus>
                 </div>
                 <div class="input2">
                     <label for="userPassword">Password</label>

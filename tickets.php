@@ -4,16 +4,26 @@ if ( empty ( $_SESSION['connected'] ) ) {
     header ("HTTP/1.1 301 Moved Permanently");
     header ("Location: /home.php?notConnected=true");
     exit();
-}
-else {
+} else {
     $info =     "<div class='alert-info'>
-                    Bonjour <?= login ?>, :) Vous etes bien connecte!
+                    Hi <?= login ?>, :) You're connected!
                 </div>";
 }
 if ( $_GET['reconnection'] ) {
     $error =    "<div class='alert-danger'>
                     You're now connected. Log out if you want to login again
                 </div>";
+}
+if ( $_POST['object'] && $_POST['dateDay'] && $_POST['timeHour'] ) {
+    require_once 'dbfunction.php';
+    $idcom = connexobjet("record","myparam");
+    $sender = $idcom->real_escape_string ( $_SESSION['id'] );
+    $description = $idcom->real_escape_string ( $_POST['description'] );
+    $hour = $idcom->real_escape_string ( $_POST['timeHour'] );
+    $day = $idcom->real_escape_string ( $_POST['dateDay'] );
+    $object = $idcom->real_escape_string ( $_POST['object'] );
+    insertTicket ( $idcom , $sender , $description , $day , $hour , $object );
+    $idcom->close();
 }
 $title="Tickets";
 $faveIcon="rsc/img/fav_submit.png";
@@ -22,12 +32,12 @@ require_once 'header.php';
     <div class="main">
         <div class="center">
             <?php if ( $error ) { echo $error; } ?>
-            <?php if ( $info ) { echo $info; } ?>
-            <form action="tickets.php" method="post" accept-charset="utf-8">
+            <?php if ( $info && !$error ) { echo $info; } ?>
+            <form action="" method="post" accept-charset="utf-8">
                 <div class="input">
                     <label for="object">Object</label>
-                    <input type="text" name="userName" id="userName" value=""
-                    placeholder="please write the object of the ticket" required checked>
+                    <input type="text" name="object" id="object" value=""
+                    placeholder="please write the object of the ticket" required autofocus>
                 </div>
                 <div class="input2">
                     <label for="dateDay">Date</label>

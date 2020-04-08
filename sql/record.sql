@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS ticket (
     sender INT NOT NULL,
     day DATE NOT NULL,
     hour TIME NOT NULL,
+    description TEXT,
     CONSTRAINT k_sender
     FOREIGN KEY  (sender)
     REFERENCES client(id_client)
